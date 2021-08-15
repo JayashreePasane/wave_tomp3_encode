@@ -1,4 +1,4 @@
-CC=g++
+CPP=g++
 
 ifndef CPPFLAGS 
 CPPFLAGS  = -MMD -O0 -Wall -g3 -MP
@@ -16,7 +16,7 @@ LIBDIR += -Llame_lib
 LIBS += $(LIBDIR)
 
 ifndef LDO
-LDO=$(CC)
+LDO=$(CPP)
 endif
 
 Q=@
@@ -37,8 +37,8 @@ ALL = $(BINALL)
 all: $(ALL)
 
 %.o: %.c
-	$(Q)$(CC) -c -o $@ $(CPPFLAGS ) $<
-	@$(E) "  CC " $<
+	$(Q)$(CPP) -c -o $@ $(CPPFLAGS ) $<
+	@$(E) "  CPP " $<
 
 waveToMp3Encode: $(OBJS)
 	$(Q)$(LDO) $(LDFLAGS) -o waveToMp3Encode $(OBJS) $(LIBS) $(INC_DIR)
