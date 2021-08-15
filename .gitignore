@@ -1,4 +1,5 @@
 *.mp3
 *.o
 *.d
+*waveToMp3Encode
 
