@@ -2,4 +2,8 @@
 *.o
 *.d
 *waveToMp3Encode
+.autotools
+.cproject
+.project
+.settings/
 

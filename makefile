@@ -1,17 +1,18 @@
+
 CPP=g++
 
 ifndef CPPFLAGS 
-CPPFLAGS  = -MMD -O0 -Wall -g3 -MP
+CPPFLAGS  = -MMD -O0 -Wall -g3 -MP -std=c++17
 endif
 
 LDFLAGS = -static
 
-OBJS = main.o
+OBJS = main.o  wave.o
 
-INC_DIR = -I"C:\MinGW\include"
+INC_DIR = -I"C:\MinGW_64\include"
 
 LIBS = -lmp3lame
-LIBS += -lpthread -lm
+LIBS += -lpthread
 LIBDIR += -Llame_lib
 LIBS += $(LIBDIR)
 
@@ -41,9 +42,9 @@ all: $(ALL)
 	@$(E) "  CPP " $<
 
 waveToMp3Encode: $(OBJS)
-	$(Q)$(LDO) $(LDFLAGS) -o waveToMp3Encode $(OBJS) $(LIBS) $(INC_DIR)
+	$(Q)$(LDO) $(LDFLAGS) -o waveToMp3Encode $(OBJS) $(LIBS) $(INC_DIR) $(INC)
 	@$(E) "  LD " $@
 
 clean:
-	rm -f *.o
-	rm -f *.d
+	-rm ./wave.d
+	-rm ./wave.o
